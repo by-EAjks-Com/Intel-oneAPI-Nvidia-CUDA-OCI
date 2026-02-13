@@ -1,5 +1,5 @@
-#   by-EAjks.Com Development Environments
-#   Copyright (C) 2025-2025 Andrea and Eric DELAGE <Contact@by-EAjks.Com>
+#   Intel oneAPI + Nvidia CUDA OCI
+#   Copyright (c) 2026 Andrea and Eric DELAGE <Contact@by-EAjks.Com>
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ LABEL maintainer="by-EAjks.Com <Contact@by-EAjks.Com>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Add the Intel/OneAPI packages
+# Add the Intel/oneAPI packages
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
@@ -55,9 +55,9 @@ RUN apt-get update \
         doxygen=1.9.8+ds-2.1build1 \
         doxygen-latex=1.9.8+ds-2.1build1 \
         graphviz=2.42.4-3build2 \
-        intel-oneapi-common-licensing-2025.2=2025.2.0-377 \
-        intel-oneapi-dpcpp-cpp-2025.2=2025.2.1-7 \
-        libssl-dev=3.5.3-1ubuntu2 \
+        intel-oneapi-common-licensing-2025.3=2025.3.1-15 \
+        intel-oneapi-dpcpp-cpp-2025.3=2025.3.2-832 \
+        libssl-dev \
  && apt-get autoremove --yes --purge \
  && rm -rf /var/lib/apt/lists/*
 
@@ -89,38 +89,37 @@ RUN apt-mark hold \
         doxygen \
         doxygen-latex \
         graphviz \
-        intel-oneapi-common-licensing-2025.2 \
-        intel-oneapi-dpcpp-cpp-2025.2 \
-        libssl-dev
+        intel-oneapi-common-licensing-2025.3 \
+        intel-oneapi-dpcpp-cpp-2025.3
 
 # Add Nvidia CUDA support
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
-        cuda-cudart-dev-13-0=13.0.96-1 \
-        cuda-command-line-tools-13-0=13.0.2-1 \
-        cuda-minimal-build-13-0=13.0.2-1 \
-        cuda-libraries-dev-13-0=13.0.2-1 \
-        cuda-nvml-dev-13-0=13.0.87-1 \
-        libnpp-dev-13-0=13.0.1.2-1 \
-        libcublas-dev-13-0=13.1.0.3-1 \
-        libcusparse-dev-13-0=12.6.3.3-1 \
-        libnccl-dev=2.28.3-1+cuda13.0 \
-        cuda-nsight-compute-13-0=13.0.2-1 \
+        cuda-cudart-dev-13-1=13.1.80-1 \
+        cuda-command-line-tools-13-1=13.1.1-1 \
+        cuda-minimal-build-13-1=13.1.1-1 \
+        cuda-libraries-dev-13-1=13.1.1-1 \
+        cuda-nvml-dev-13-1=13.1.115-1 \
+        libnpp-dev-13-1=13.0.3.3-1 \
+        libcublas-dev-13-1=13.2.1.1-1 \
+        libcusparse-dev-13-1=12.7.3.1-1 \
+        libnccl-dev=2.29.3-1+cuda13.1 \
+        cuda-nsight-compute-13-1=13.1.1-1 \
  && apt-get autoremove --yes --purge \
  && rm -rf /var/lib/apt/lists/*
 
 RUN apt-mark hold \
-        cuda-cudart-dev-13-0 \
-        cuda-command-line-tools-13-0 \
-        cuda-minimal-build-13-0 \
-        cuda-libraries-dev-13-0 \
-        cuda-nvml-dev-13-0 \
-        libnpp-dev-13-0 \
-        libcublas-dev-13-0 \
-        libcusparse-dev-13-0 \
+        cuda-cudart-dev-13-1 \
+        cuda-command-line-tools-13-1 \
+        cuda-minimal-build-13-1 \
+        cuda-libraries-dev-13-1 \
+        cuda-nvml-dev-13-1 \
+        libnpp-dev-13-1 \
+        libcublas-dev-13-1 \
+        libcusparse-dev-13-1 \
         libnccl-dev \
-        cuda-nsight-compute-13-0
+        cuda-nsight-compute-13-1
 
 ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs${LIBRARY_PATH:+:${LIBRARY_PATH}}
 
