@@ -101,7 +101,7 @@ RUN apt-get update \
         cuda-minimal-build-13-2=13.2.0-1 \
         cuda-libraries-dev-13-2=13.2.0-1 \
         cuda-nvml-dev-13-2=13.2.51-1 \
-        libnpp-dev-13-2=13.0.3.3-1 \
+        libnpp-dev-13-2=13.1.0.44-1 \
         libcublas-dev-13-2=13.3.0.5-1 \
         libcusparse-dev-13-2=12.7.9.17-1 \
         cuda-nsight-compute-13-2=13.2.0-1 \
