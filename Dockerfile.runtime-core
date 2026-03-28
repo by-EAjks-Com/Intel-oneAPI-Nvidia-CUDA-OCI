@@ -36,12 +36,11 @@ RUN apt-get update \
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
-        cuda-libraries-13-1 \
-        libnpp-13-1 \
-        cuda-nvtx-13-1 \
-        libcublas-13-1 \
-        libcusparse-13-1 \
-        libnccl2 \
+        cuda-libraries-13-2 \
+        libnpp-13-2 \
+        cuda-nvtx-13-2 \
+        libcublas-13-2 \
+        libcusparse-13-2 \
  && apt-get autoremove --yes --purge \
  && rm -rf /var/lib/apt/lists/*
 

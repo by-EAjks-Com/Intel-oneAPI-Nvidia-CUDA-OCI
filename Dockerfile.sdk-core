@@ -28,35 +28,35 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
-        git=1:2.51.0-1ubuntu1 \
-        git-flow=1.12.3-3 \
-        cmake=3.31.6-2ubuntu6 \
-        ninja-build=1.12.1-1 \
-        ccache=4.11.2-2 \
-        build-essential=12.12ubuntu1 \
-        llvm=1:20.0-63ubuntu1 \
-        clang=1:20.0-63ubuntu1 \
-        clang-format=1:20.0-63ubuntu1 \
-        clang-tidy=1:20.0-63ubuntu1 \
-        clang-tools=1:20.0-63ubuntu1 \
-        lld=1:20.0-63ubuntu1 \
-        llvm-20=1:20.1.8-0ubuntu4 \
-        clang-20=1:20.1.8-0ubuntu4 \
-        clang-format-20=1:20.1.8-0ubuntu4 \
-        clang-tidy-20=1:20.1.8-0ubuntu4 \
-        clang-tools-20=1:20.1.8-0ubuntu4 \
-        lld-20=1:20.1.8-0ubuntu4 \
-        llvm-21=1:21.1.2-2ubuntu6 \
-        clang-21=1:21.1.2-2ubuntu6 \
-        clang-format-21=1:21.1.2-2ubuntu6 \
-        clang-tidy-21=1:21.1.2-2ubuntu6 \
-        clang-tools-21=1:21.1.2-2ubuntu6 \
-        lld-21=1:21.1.2-2ubuntu6 \
-        doxygen=1.9.8+ds-2.1build1 \
-        doxygen-latex=1.9.8+ds-2.1build1 \
-        graphviz=2.42.4-3build2 \
+        git=1:2.53.0-1ubuntu1 \
+        git-flow=1.12.3-3build1 \
+        cmake=4.2.3-2ubuntu2 \
+        ninja-build=1.13.2-1 \
+        ccache=4.12.3-1 \
+        build-essential=12.12ubuntu2 \
+        llvm=1:21.1.6-71 \
+        clang=1:21.1.6-71 \
+        clang-format=1:21.1.6-71 \
+        clang-tidy=1:21.1.6-71 \
+        clang-tools=1:21.1.6-71 \
+        lld=1:21.1.6-71 \
+        llvm-21=1:21.1.8-4ubuntu2 \
+        clang-21=1:21.1.8-4ubuntu2 \
+        clang-format-21=1:21.1.8-4ubuntu2 \
+        clang-tidy-21=1:21.1.8-4ubuntu2 \
+        clang-tools-21=1:21.1.8-4ubuntu2 \
+        lld-21=1:21.1.8-4ubuntu2 \
+        llvm-22=1:22.1.0-2ubuntu1 \
+        clang-22=1:22.1.0-2ubuntu1 \
+        clang-format-22=1:22.1.0-2ubuntu1 \
+        clang-tidy-22=1:22.1.0-2ubuntu1 \
+        clang-tools-22=1:22.1.0-2ubuntu1 \
+        lld-22=1:22.1.0-2ubuntu1 \
+        doxygen=1.15.0+ds1-1ubuntu3 \
+        doxygen-latex=1.15.0+ds1-1ubuntu3 \
+        graphviz=14.1.2-1ubuntu1 \
         intel-oneapi-common-licensing-2025.3=2025.3.1-15 \
-        intel-oneapi-dpcpp-cpp-2025.3=2025.3.2-832 \
+        intel-oneapi-dpcpp-cpp-2025.3=2025.3.3-30 \
         libssl-dev \
  && apt-get autoremove --yes --purge \
  && rm -rf /var/lib/apt/lists/*
@@ -74,18 +74,18 @@ RUN apt-mark hold \
         clang-tidy \
         clang-tools \
         lld \
-        llvm-20 \
-        clang-20 \
-        clang-format-20 \
-        clang-tidy-20 \
-        clang-tools-20 \
-        lld-20 \
         llvm-21 \
         clang-21 \
         clang-format-21 \
         clang-tidy-21 \
         clang-tools-21 \
         lld-21 \
+        llvm-22 \
+        clang-22 \
+        clang-format-22 \
+        clang-tidy-22 \
+        clang-tools-22 \
+        lld-22 \
         doxygen \
         doxygen-latex \
         graphviz \
@@ -96,30 +96,28 @@ RUN apt-mark hold \
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
-        cuda-cudart-dev-13-1=13.1.80-1 \
-        cuda-command-line-tools-13-1=13.1.1-1 \
-        cuda-minimal-build-13-1=13.1.1-1 \
-        cuda-libraries-dev-13-1=13.1.1-1 \
-        cuda-nvml-dev-13-1=13.1.115-1 \
-        libnpp-dev-13-1=13.0.3.3-1 \
-        libcublas-dev-13-1=13.2.1.1-1 \
-        libcusparse-dev-13-1=12.7.3.1-1 \
-        libnccl-dev=2.29.3-1+cuda13.1 \
-        cuda-nsight-compute-13-1=13.1.1-1 \
+        cuda-cudart-dev-13-2=13.2.51-1 \
+        cuda-command-line-tools-13-2=13.2.0-1 \
+        cuda-minimal-build-13-2=13.2.0-1 \
+        cuda-libraries-dev-13-2=13.2.0-1 \
+        cuda-nvml-dev-13-2=13.2.51-1 \
+        libnpp-dev-13-2=13.0.3.3-1 \
+        libcublas-dev-13-2=13.3.0.5-1 \
+        libcusparse-dev-13-2=12.7.9.17-1 \
+        cuda-nsight-compute-13-2=13.2.0-1 \
  && apt-get autoremove --yes --purge \
  && rm -rf /var/lib/apt/lists/*
 
 RUN apt-mark hold \
-        cuda-cudart-dev-13-1 \
-        cuda-command-line-tools-13-1 \
-        cuda-minimal-build-13-1 \
-        cuda-libraries-dev-13-1 \
-        cuda-nvml-dev-13-1 \
-        libnpp-dev-13-1 \
-        libcublas-dev-13-1 \
-        libcusparse-dev-13-1 \
-        libnccl-dev \
-        cuda-nsight-compute-13-1
+        cuda-cudart-dev-13-2 \
+        cuda-command-line-tools-13-2 \
+        cuda-minimal-build-13-2 \
+        cuda-libraries-dev-13-2 \
+        cuda-nvml-dev-13-2 \
+        libnpp-dev-13-2 \
+        libcublas-dev-13-2 \
+        libcusparse-dev-13-2 \
+        cuda-nsight-compute-13-2
 
 ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs${LIBRARY_PATH:+:${LIBRARY_PATH}}
 

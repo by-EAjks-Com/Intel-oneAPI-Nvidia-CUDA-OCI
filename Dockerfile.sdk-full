@@ -41,7 +41,8 @@ RUN apt-mark hold \
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
         libcudnn9-cuda-13 \
-        libcudnn9-dev-cuda-13=9.19.0.56-1 \
+        libcudnn9-dev-cuda-13=9.20.0.48-1 \
+        libcudnn9-headers-cuda-13=9.20.0.48-1 \
  && apt-get autoremove --yes --purge \
  && rm -rf /var/lib/apt/lists/*
 
